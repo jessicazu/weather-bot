@@ -1,5 +1,6 @@
 import os, json, requests, datetime
 from requests_oauthlib import OAuth1Session
+import random
 
 def update_profile(event, context):
     CK = os.environ["CONSUMER_KEY"]
@@ -18,7 +19,27 @@ def update_profile(event, context):
     now = datetime.datetime.now()
     jst = now + datetime.timedelta(hours=9)
     jst = jst.hour
-    username = "冨田 一喜"
+    n = random.random()
+    if 0 < n <= 0.1:
+        username = "冨田 一喜"
+    elif 0.1 < n <= 0.2:
+        username = "とみたかずき"
+    elif 0.2 < n <= 0.3:
+        username = "とみちゃん"
+    elif 0.3 < n <= 0.4:
+        username = "とみてぃー"
+    elif 0.4 < n <= 0.5:
+        username = "かずたん"
+    elif 0.5 < n <= 0.6:
+        username = "かずたん"
+    elif 0.6 < n <= 0.7:
+        username = "Tommy"
+    elif 0.7 < n <= 0.8:
+        username = "トミー"
+    elif 0.8 < n <= 0.9:
+        username = "Kazuki"
+    else:
+        username = "エラー"
 
     if weather_id == 800:
         if jst >= 18 and jst <= 23 or jst >= 0 and jst <= 5:
